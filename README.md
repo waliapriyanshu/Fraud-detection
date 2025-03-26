@@ -8,8 +8,6 @@ This repository implements a robust fraud detection system using machine learnin
   
 - **preprocess.py**: This file manages the data preprocessing steps, including handling missing values, detecting outliers, and addressing multi-collinearity. It also covers key feature engineering tasks, crucial for building effective fraud detection models.
 
-- **FRAUD DETECTION ASSIGNMENT.pdf**: This document provides a detailed overview of the approach, model evaluation, and recommendations for improving the fraud detection system.
-
 ## Dataset Overview
 
 The dataset used in this project is a simulation of financial transactions with a focus on detecting fraudulent behavior. The key attributes include:
