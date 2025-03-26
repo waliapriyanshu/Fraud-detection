@@ -1,4 +1,4 @@
-# Fraud Detection Assignment
+# Fraud Detection
 
 This repository implements a robust fraud detection system using machine learning to identify fraudulent transactions in a financial dataset. The project involves multiple phases: data preprocessing, feature engineering, model training, and evaluation. The goal is to classify transactions as fraudulent or legitimate using a variety of machine learning algorithms.
 
@@ -7,6 +7,8 @@ This repository implements a robust fraud detection system using machine learnin
 - **model.py**: Contains the machine learning models used for fraud detection, including Random Forest, Gradient Boosting, XGBoost, and Logistic Regression. The file handles model training, hyperparameter tuning, and performance evaluation.
   
 - **preprocess.py**: This file manages the data preprocessing steps, including handling missing values, detecting outliers, and addressing multi-collinearity. It also covers key feature engineering tasks, crucial for building effective fraud detection models.
+
+- **FRAUD DETECTION ASSIGNMENT.pdf**: This document provides a detailed overview of the approach, model evaluation, and recommendations for improving the fraud detection system.
 
 ## Dataset Overview
 
@@ -54,7 +56,7 @@ In this project, several machine learning models were trained and evaluated to p
 
 All models were evaluated on a split dataset using several performance metrics:
 
-- **Accuracy**: All models achieved 99% accuracy, as the dataset is highly imbalanced with a clear distinction between fraud and non-fraud cases.
+- **Accuracy**: All models achieved 100% accuracy, as the dataset is highly imbalanced with a clear distinction between fraud and non-fraud cases.
 - **ROC AUC**: All models scored close to 1, indicating excellent performance in distinguishing between fraudulent and legitimate transactions.
 - **Precision and Recall**: Both models exhibited perfect precision and recall, accurately identifying fraudulent transactions without any false positives or negatives.
 
@@ -74,4 +76,31 @@ To run the fraud detection system, you'll need the following:
 - **Required Libraries**: Install the necessary libraries using pip:
 
 ```bash
-pip install pandas numpy scikit-learn xgboost matplotlib seaborn
+   pip install pandas numpy scikit-learn xgboost matplotlib seaborn
+```
+### Installation
+1. Clone this repository:
+```bash
+git clone https://github.com/yourusername/fraud-detection.git
+cd fraud-detection
+```
+2. Download the dataset [here](https://drive.usercontent.google.com/download?id=1VNpyNkGxHdskfdTNRSjjyNa5qC9u0JyV&export=download&authuser=0) and place it in the project directory.
+3. Run the preprocessing script to prepare the data for modeling:
+```bash
+python preprocess.py
+```
+4. Train the models and evaluate their performance:
+```bash
+python model.py
+```
+
+### Future Work
+While the models show excellent performance in detecting fraud, there is always room for improvement:
+
+Handling Class Imbalance: The dataset is imbalanced, with fewer fraudulent transactions. Future work could include techniques like oversampling or using advanced loss functions.
+Real-time Fraud Detection: Deploying the model for real-time fraud detection in production systems can be an interesting challenge.
+Feature Expansion: More advanced feature engineering, including temporal patterns and external data sources, could be explored.
+
+### Conclusion
+This project demonstrates a successful implementation of fraud detection using machine learning. The models performed exceptionally well, accurately identifying fraudulent transactions and providing insights into key features that contribute to fraud. This system has the potential to be adapted and expanded for real-world applications in banking and finance.
+
