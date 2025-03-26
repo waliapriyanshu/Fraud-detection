@@ -95,10 +95,9 @@ python model.py
 ## Future Work
 While the models show excellent performance in detecting fraud, there is always room for improvement:
 
-Handling Class Imbalance: The dataset is imbalanced, with fewer fraudulent transactions. Future work could include techniques like oversampling or using advanced loss functions.
-Real-time Fraud Detection: Deploying the model for real-time fraud detection in production systems can be an interesting challenge.
-Feature Expansion: More advanced feature engineering, including temporal patterns and external data sources, could be explored.
+**Handling Class Imbalance**: The dataset is imbalanced, with fewer fraudulent transactions. Future work could include techniques like oversampling or using advanced loss functions.
+**Real-time Fraud Detection**: Deploying the model for real-time fraud detection in production systems can be an interesting challenge.
+**Feature Expansion**: More advanced feature engineering, including temporal patterns and external data sources, could be explored.
 
 ## Conclusion
 This project demonstrates a successful implementation of fraud detection using machine learning. The models performed exceptionally well, accurately identifying fraudulent transactions and providing insights into key features that contribute to fraud. This system has the potential to be adapted and expanded for real-world applications in banking and finance.
-
