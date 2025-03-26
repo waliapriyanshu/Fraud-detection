@@ -1,42 +1,57 @@
-# Fraud-detection
-FRAUD DETECTION ASSIGNMENT
+# Fraud Detection Assignment
 
-1. Data Cleaning:
-•	Missing Values: I identified and handled missing values by applying imputation techniques or removal where necessary, ensuring a clean dataset for model training.
-•	Outliers: I detected outliers using statistical methods (Z-scores and box plots) and addressed them appropriately to avoid skewed results.
-•	Multi-Collinearity: I evaluated the features for multi-collinearity using correlation matrices and Variance Inflation Factor (VIF). Features with high correlation were removed to improve model performance.
+This repository contains the implementation of a fraud detection system using machine learning models to classify fraudulent transactions. The project involves data preprocessing, model training, and evaluation of multiple machine learning algorithms.
 
-2. Model Development:
-I implemented four machine learning models for fraud detection: Random Forest, Gradient Boosting, XGBoost, and Logistic Regression. These models were selected based on their suitability for classification tasks, particularly with imbalanced datasets.
-•	Model Training: I split the data into calibration and validation sets and fine-tuned each model to ensure optimal performance. The models were trained on various features to predict fraudulent transactions.
-•	Evaluation Metrics: I assessed the models using accuracy, precision, recall, F1-score and ROC AUC. The confusion matrices for each model were generated to assess how well they identified fraud.
+## Files
 
-3. Model Results:
-Random Forest Model:
-•	Accuracy: 1.00
-•	ROC AUC Score: 0.999999982
-•	Precision and Recall: Both 1.00 for class 0 and class 1, indicating perfect classification.
-Gradient Boosting Model:
-•	Accuracy: 1.00
-•	ROC AUC Score: 0.999966600
-•	Precision and Recall: Both 1.00 for class 0 and class 1, indicating excellent performance.
- XGBoost Model:
-•	Accuracy: 1.00
-•	ROC AUC Score: 0.9999996317
-•	Precision and Recall: Both 1.00 for class 0 and class 1, showing flawless classification.
-Logistic Regression Model:
-•	Accuracy: 1.00
-•	ROC AUC Score: 0.9998377
-•	Precision and Recall: Both 1.00 for class 0 and class 1, confirming the model’s accuracy.
+- **model.py**: Contains the machine learning models for fraud detection, including Random Forest, Gradient Boosting, XGBoost, and Logistic Regression. It includes model training, hyperparameter tuning, and evaluation.
+  
+- **preprocess.py**: Handles the data preprocessing steps, including handling missing values, detecting outliers, and addressing multi-collinearity in the dataset.
 
-4. Key Factors Predicting Fraudulent Transactions:
-1.	The models identified factors such as transaction amount, frequency of transactions, and transaction location as critical predictors for identifying fraud.
-2.	These factors align with known fraud detection patterns, where anomalous behaviors and high-value transactions are typically red flags for fraudulent activities.
+- **FRAUD DETECTION ASSIGNMENT.pdf**: The assignment document that details the approach, model evaluation, and recommendations for improving the fraud detection system.
 
-5. Recommendations:
-•	Based on the model results, I recommend improving the fraud detection system by integrating real-time monitoring of high-risk transactions and utilizing two-factor authentication for transactions over a certain threshold.
-•	Preventive Measures: Enhancing security protocols and updating infrastructure to detect anomalous patterns in real-time would help further mitigate fraud risks.
+## Project Overview
 
-6. Evaluation of Effectiveness:
-The effectiveness of the fraud prevention actions can be evaluated by measuring reduced fraud incidents over time, improved detection accuracy and user feedback. I recommend conducting regular A/B tests to validate the system's performance post-implementation.
-I have attached the Jupyter notebook containing the code for the data cleaning, model development, and evaluation steps, as well as the confusion matrices and detailed performance metrics for each model.
+This project aims to identify fraudulent transactions using various machine learning algorithms. The dataset was cleaned and preprocessed before being used for model training. The models used in this assignment are:
+
+1. **Random Forest**
+2. **Gradient Boosting**
+3. **XGBoost**
+4. **Logistic Regression**
+
+Each model was evaluated based on multiple metrics, including accuracy, precision, recall, F1-score, and ROC AUC.
+
+### Preprocessing
+
+1. **Data Cleaning**: 
+   - Missing values were handled using imputation techniques.
+   - Outliers were detected and removed using Z-scores and box plots.
+   - Multi-collinearity was addressed using correlation matrices and Variance Inflation Factor (VIF).
+   
+2. **Feature Engineering**: 
+   - Transaction amount, frequency of transactions, and transaction location were identified as key features for predicting fraud.
+
+### Model Evaluation
+
+All models were trained on a split dataset and evaluated using the following metrics:
+- Accuracy: 100% for all models.
+- ROC AUC: Close to 1, indicating excellent model performance.
+- Precision and Recall: Both models exhibited perfect precision and recall for both classes.
+
+### Key Findings
+
+- **Transaction Amount**: Larger transaction amounts are often linked with fraudulent activities.
+- **Transaction Frequency**: Anomalous frequencies of transactions also correlate with fraud.
+
+## Setup and Usage
+
+### Prerequisites
+- Python 3.x
+- Libraries: `pandas`, `numpy`, `scikit-learn`, `xgboost`, `matplotlib`, `seaborn`
+
+### Installation
+
+Clone this repository:
+
+```bash
+git clone https://github.com/yourusername/fraud-detection.git
