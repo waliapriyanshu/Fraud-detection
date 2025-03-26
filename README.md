@@ -1,57 +1,77 @@
 # Fraud Detection Assignment
 
-This repository contains the implementation of a fraud detection system using machine learning models to classify fraudulent transactions. The project involves data preprocessing, model training, and evaluation of multiple machine learning algorithms.
+This repository implements a robust fraud detection system using machine learning to identify fraudulent transactions in a financial dataset. The project involves multiple phases: data preprocessing, feature engineering, model training, and evaluation. The goal is to classify transactions as fraudulent or legitimate using a variety of machine learning algorithms.
 
 ## Files
 
-- **model.py**: Contains the machine learning models for fraud detection, including Random Forest, Gradient Boosting, XGBoost, and Logistic Regression. It includes model training, hyperparameter tuning, and evaluation.
+- **model.py**: Contains the machine learning models used for fraud detection, including Random Forest, Gradient Boosting, XGBoost, and Logistic Regression. The file handles model training, hyperparameter tuning, and performance evaluation.
   
-- **preprocess.py**: Handles the data preprocessing steps, including handling missing values, detecting outliers, and addressing multi-collinearity in the dataset.
+- **preprocess.py**: This file manages the data preprocessing steps, including handling missing values, detecting outliers, and addressing multi-collinearity. It also covers key feature engineering tasks, crucial for building effective fraud detection models.
 
-- **FRAUD DETECTION ASSIGNMENT.pdf**: The assignment document that details the approach, model evaluation, and recommendations for improving the fraud detection system.
+## Dataset Overview
 
-## Project Overview
+The dataset used in this project is a simulation of financial transactions with a focus on detecting fraudulent behavior. The key attributes include:
 
-This project aims to identify fraudulent transactions using various machine learning algorithms. The dataset was cleaned and preprocessed before being used for model training. The models used in this assignment are:
+- **step**: Maps a unit of time in the real world (1 step = 1 hour).
+- **type**: Transaction types (CASH-IN, CASH-OUT, DEBIT, PAYMENT, TRANSFER).
+- **amount**: The amount involved in the transaction.
+- **nameOrig**: The customer initiating the transaction.
+- **oldbalanceOrg**: The balance before the transaction.
+- **newbalanceOrig**: The balance after the transaction.
+- **nameDest**: The recipient of the transaction.
+- **oldbalanceDest**: The recipient's balance before the transaction.
+- **newbalanceDest**: The recipient's balance after the transaction.
+- **isFraud**: Label indicating whether the transaction was fraudulent (1 for fraud, 0 for legitimate).
+- **isFlaggedFraud**: Indicates if a large transfer (more than 200,000) is flagged as potentially fraudulent.
 
-1. **Random Forest**
-2. **Gradient Boosting**
-3. **XGBoost**
-4. **Logistic Regression**
+## Data Preprocessing
 
-Each model was evaluated based on multiple metrics, including accuracy, precision, recall, F1-score, and ROC AUC.
+Preprocessing was a critical part of this project. The following steps were applied to the dataset:
 
-### Preprocessing
+1. **Data Cleaning**:
+   - **Missing Values**: Imputation techniques were used to fill missing values based on the data's distribution.
+   - **Outliers**: Outliers were detected using Z-scores and box plots, and they were removed or adjusted to ensure the models could generalize better.
+   - **Multi-collinearity**: The dataset was checked for high correlations between features using correlation matrices and Variance Inflation Factor (VIF), which were mitigated by removing redundant features.
 
-1. **Data Cleaning**: 
-   - Missing values were handled using imputation techniques.
-   - Outliers were detected and removed using Z-scores and box plots.
-   - Multi-collinearity was addressed using correlation matrices and Variance Inflation Factor (VIF).
-   
-2. **Feature Engineering**: 
-   - Transaction amount, frequency of transactions, and transaction location were identified as key features for predicting fraud.
+2. **Feature Engineering**:
+   - **Transaction Amount**: One of the most significant features, as large amounts were found to correlate with fraudulent transactions.
+   - **Transaction Frequency**: The number of transactions over a period helped in identifying unusual patterns.
+   - **Transaction Type**: Differentiating between types of transactions (CASH-IN, CASH-OUT, etc.) was crucial for distinguishing legitimate from fraudulent activities.
+   - **Balance Changes**: Large changes in the balance before and after transactions were flagged as potential signs of fraud.
+
+3. **Feature Scaling**: Standardization and normalization were applied to ensure the models trained effectively, especially since some algorithms are sensitive to the scale of features.
+
+## Models Used
+
+In this project, several machine learning models were trained and evaluated to predict fraudulent transactions:
+
+1. **Random Forest**: A robust ensemble method that builds multiple decision trees and averages their results.
+2. **Gradient Boosting**: A boosting algorithm that builds trees sequentially, focusing on the errors made by the previous trees.
+3. **XGBoost**: An optimized gradient boosting algorithm that uses regularization and parallel processing for better performance.
+4. **Logistic Regression**: A simple yet effective model for binary classification, used here for comparison with more complex models.
 
 ### Model Evaluation
 
-All models were trained on a split dataset and evaluated using the following metrics:
-- Accuracy: 100% for all models.
-- ROC AUC: Close to 1, indicating excellent model performance.
-- Precision and Recall: Both models exhibited perfect precision and recall for both classes.
+All models were evaluated on a split dataset using several performance metrics:
 
-### Key Findings
+- **Accuracy**: All models achieved 99% accuracy, as the dataset is highly imbalanced with a clear distinction between fraud and non-fraud cases.
+- **ROC AUC**: All models scored close to 1, indicating excellent performance in distinguishing between fraudulent and legitimate transactions.
+- **Precision and Recall**: Both models exhibited perfect precision and recall, accurately identifying fraudulent transactions without any false positives or negatives.
 
-- **Transaction Amount**: Larger transaction amounts are often linked with fraudulent activities.
-- **Transaction Frequency**: Anomalous frequencies of transactions also correlate with fraud.
+### Key Insights
+
+- **Transaction Amount**: Larger transaction amounts were consistently associated with fraudulent activities. The model's ability to identify large transactions was key in detecting fraud.
+- **Transaction Frequency**: Anomalous transaction frequencies (such as rapid, multiple small transactions) were also strong indicators of fraudulent behavior.
+- **Balance Shifts**: Large fluctuations in balance before and after the transaction were linked to fraud, highlighting the importance of monitoring account balances.
 
 ## Setup and Usage
 
 ### Prerequisites
-- Python 3.x
-- Libraries: `pandas`, `numpy`, `scikit-learn`, `xgboost`, `matplotlib`, `seaborn`
 
-### Installation
+To run the fraud detection system, you'll need the following:
 
-Clone this repository:
+- **Python 3.x**: Ensure Python is installed on your system.
+- **Required Libraries**: Install the necessary libraries using pip:
 
 ```bash
-git clone https://github.com/yourusername/fraud-detection.git
+pip install pandas numpy scikit-learn xgboost matplotlib seaborn
